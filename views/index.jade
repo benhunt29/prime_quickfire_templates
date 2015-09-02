@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  script(id="studentTemplate" type="text/x-handlebars-template")
+    li
+      {{firstName}}
+      {{lastName}}
+  .row#currentStudents
+    ul#contents
+      each student in students
+        include ./students.jade
+    form(method="POST")
+      fieldset Add New Student
+        div
+          label(for="newStudentFirstName") First Name:
+          input(type="text" id="newStudentFirstName" name="firstName")
+          label(for="newStudentLastName") Last Name:
+          input(type="text" id="newStudentLastName" name="lastName")
+          input(type="submit" value="Add Student")
